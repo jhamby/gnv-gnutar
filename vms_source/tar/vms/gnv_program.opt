@@ -1,0 +1,3 @@
+sys$disk:[-]vms_fname_to_unix.obj
+sys$disk:[-]vms_terminal_io.obj
+sys$disk:[-]vms_crtl_init.obj

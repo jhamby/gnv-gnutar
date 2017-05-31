@@ -1,0 +1,83 @@
+
+HDHR-1043918B 00-18-DD-04-39-18 192.168.0.107
+
+1. Running vms_prebuild always updates config.status
+   only should create if non-existant as that may be causing make to re-run
+configure for rebuilds.
+
+2. Needs version report fixed.
+Done.
+
+3. Special options for linking with threads?
+  /threads_enable if missing -pthread option in ld command.
+Looks done.
+
+4. make check ?
+Ticket filed.
+Make check seems to be failing due to Bash redirection issues.
+The zdiff command/script also seems to have those same issues.
+
+  GEN      check-local
+./zdiff: line 81: 4: bad file number
+diff: -: illegal seek
+./zdiff: line 160: test: : integer expression expected
+
+
+make check does a:
+  gzip --help
+  gzip --help
+  gzip --help
+  gzip --help
+
+  GEN      gzip.doc.gz
+
+  GEN      check-local
+  gzip (no arguments)  Exits success
+
+  gzip -cd -- gzip.doc.gz  Exits success
+
+diff: /dev/fd/5: no such file or directory
+/usr/bin/zdiff: line 110: cannot duplicate fd 3 to fd 0: bad file number
+/usr/bin/zdiff: line 110: cannot duplicate fd 4 to fd 1: bad file number
+
+  ***[check] error 2
+
+
+bash-4.3$ zdiff gzip.doc.gz
+diff: -: illegal seek.
+
+
+
+
+5. needs to work with gzip logical name for env options.
+
+6. VMS specific extensions?
+
+7. Needs to work with tar
+
+ncompress missing compress alias!!!
+
+bash-4.3$ tar -czf vmstest.tar.gz ./vmstest
+%SYSTEM-F-ACCVIO, access violation, reason mask=00, virtual
+address=000000000000
+000C, PC=FFFFFFFF80F0392C, PS=0000001B
+%TRACE-F-TRACEBACK, symbolic stack dump follows
+  image    module    routine             line      rel PC           abs PC
+ DECC$SHR_EV56                              0 000000000006B92C FFFFFFFF80F0392C
+ gzip                                       0 00000000000527E4 00000000000527E4
+ gzip                                       0 0000000000052628 0000000000052628
+ gzip                                       0 000000000004158C 000000000004158C
+                                            0 FFFFFFFF80087718 FFFFFFFF80087718
+ PTHREAD$RTL                                0 000000000006F634 FFFFFFFF80E8F634
+ PTHREAD$RTL                                0 000000000005773C FFFFFFFF80E7773C
+ PTHREAD$RTL                                0 0000000000043820 FFFFFFFF80E63820
+                                            0 0000000000000000 0000000000000000
+ PTHREAD$RTL                                                 ?                ?
+                                            0 FFFFFFFF8037FC44 FFFFFFFF8037FC44
+%T
+
+8. libgzip.so seems to only be supplied by gnome-vfs?
+
+9. gzip configure runs gzip if found at least three times.
+(just a note)
+
