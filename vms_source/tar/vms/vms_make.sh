@@ -37,6 +37,8 @@ touch doc/Makefile
 touch po/Makefile
 sleep 2
 touch doc/tar.1 doc/rmt.8
+touch doc/version.texi
+sleep 2
 touch doc/tar.info
 
 export GNV_OPT_DIR=.
