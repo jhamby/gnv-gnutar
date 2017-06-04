@@ -26,6 +26,8 @@ sleep 90
 touch config.status
 ls --full-time config.status
 sleep 2
+touch config.h
+sleep 2
 touch Makefile
 touch gnu/Makefile
 touch lib/Makefile
@@ -37,9 +39,12 @@ touch doc/Makefile
 touch po/Makefile
 sleep 2
 touch doc/tar.1 doc/rmt.8
-touch doc/version.texi
+touch doc/dumpdir.texi doc/tar-snapshot-edit.texi doc/fdl.texi
+touch doc/freemanuals.texi doc/genfile.texi doc/header.texi doc/intern.texi
+touch doc/parse-datetime.texi doc/rendition.texi doc/snapshot.texi
+touch doc/sparse.texi doc/value.texi
+touch doc/tar.texi doc/version.texi
 sleep 2
 touch doc/tar.info
-
 export GNV_OPT_DIR=.
 make
