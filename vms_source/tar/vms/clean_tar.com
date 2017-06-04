@@ -95,6 +95,8 @@ $file = "sys$disk:[.gnu]locale.h"
 $if f$search(file) .nes. "" then delete 'file';*
 $file = "sys$disk:[.gnu]rmt-command.h"
 $if f$search(file) .nes. "" then delete 'file';*
+$file = "sys$disk:[.lib]rmt-command.h"
+$if f$search(file) .nes. "" then delete 'file';*
 $file = "sys$disk:[.gnu]signal.h"
 $if f$search(file) .nes. "" then delete 'file';*
 $file = "sys$disk:[.gnu]stdalign.h"
@@ -231,6 +233,7 @@ $if f$search(file) .nes. "" then delete 'file';*
 $!
 $file = "sys$disk:[]stamp-h1."
 $if f$search(file) .nes. "" then delete 'file';*
+$!
 $!
 $file = "sys$disk:[.src]tar."
 $if f$search(file) .nes. "" then delete 'file';*

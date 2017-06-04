@@ -51,8 +51,8 @@
 [gnv.usr]share.dir
 [gnv.usr.share.doc]
 [gnv.usr.share]doc.dir
-[gnv.usr.share.doc.tar]
-[gnv.usr.share.doc]tar.dir
+![gnv.usr.share.doc.tar]
+![gnv.usr.share.doc]tar.dir
 [gnv.usr.share.info]
 [gnv.usr.share]info.dir
 [gnv.usr.share.man]
